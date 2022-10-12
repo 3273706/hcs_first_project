@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Logbook</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://hamburg.de">
+          <img src="simpsons.png" />
+        </a>
+
+        <a
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item"> Home </a>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link"> More </a>
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item"> Hello </a>
+              <a class="navbar-item"> Helder </a>
+              <a class="navbar-item"> I Have no clue </a>
+              <hr class="navbar-divider" />
+              <a class="navbar-item"> Report an issue to Helder </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a
+                class="button is-primary js-modal-trigger"
+                data-target="modal-addCity"
+                id="addCityButton"
+              >
+                <strong>Add Destination</strong>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div id="content" class="columns is-multiline">
+      <!-- <div class="column">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img src="city_placeholder.jpg" alt="Placeholder image" />
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-48x48 has-background-grey-lighter">
+                  <img src="images/mono_flat/1.png" alt="Placeholder image" />
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-4">
+                  Hamburg <span class="tag is-dark"> 28° </span>
+                  <span class="tag is-dark"> Germany </span>
+                  <span class="tag">
+                    <img
+                      class="image is-32x32"
+                      src="https://countryflagsapi.com/svg/de"
+                      alt="Placeholder image"
+                    />
+                  </span>
+                </p>
+                <p class="subtitle is-6"></p>
+                <div class="columns">
+                  <div class="column">
+                    <label class="label">From</label>
+                    <input
+                      disabled="true"
+                      class="input"
+                      type="text"
+                      value="01.01.2023"
+                    />
+                  </div>
+                  <div class="column">
+                    <label class="label">To</label>
+                    <input disabled="true" class="input" type="date" />
+                  </div>
+                  <div></div>
+                </div>
+
+                <div class="content">
+                  <textarea
+                    disabled="true"
+                    class="textarea is-info"
+                    placeholder="Describe your Trip"
+                  ></textarea>
+                </div>
+                <footer class="card-footer">
+                  <button
+                    data-action="save"
+                    class="card-footer-item button is-dark"
+                    disabled="true"
+                  >
+                    Save
+                  </button>
+                  <button
+                    data-action="edit"
+                    class="card-footer-item button is-dark"
+                  >
+                    Edit
+                  </button>
+                  <button data-action="delete" class="card-footer-item button">
+                    Delete
+                  </button>
+                </footer>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+    <div class="modal" id="addCity">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Add a City to your Logbook</p>
+          <button
+            data-action="closeModal"
+            class="delete"
+            aria-label="close"
+          ></button>
+        </header>
+        <section class="modal-card-body">
+          <div class="container" id="addCity">
+            <div class="columns">
+              <div class="column is-four-fifths">
+                <div class="control has-icons-left has-icons-right">
+                  <input
+                    id="inputCityName"
+                    class="input"
+                    type="text"
+                    placeholder="Enter a Cityname"
+                  />
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-envelope"></i>
+                  </span>
+                  <span class="icon is-small is-right">
+                    <i class="fa fa-check"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="column">
+                <button data-action="searchCities" class="button is-success">
+                  Search
+                </button>
+              </div>
+            </div>
+            <!-- <div class="select is-multiple">
+              <select multiple size="3">
+                <option value="Suriname">Suriname</option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="Venezuela">Venezuela</option>
+              </select>
+            </div> -->
+          </div>
+        </section>
+        <footer class="modal-card-foot">
+          <button data-action="addCity" class="button is-success">
+            Save Destination
+          </button>
+          <button data-action="closeModal" class="button">Cancel</button>
+        </footer>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Project</strong> by Ringo. The source code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The
+          website content is licensed
+          <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+            >CC BY NC SA 4.0</a
+          >.
+        </p>
+      </div>
+    </footer>
+    <script src="main.js"></script>
+  </body>
+</html>

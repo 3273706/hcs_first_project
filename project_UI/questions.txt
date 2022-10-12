@@ -1,0 +1,16 @@
+1. How can I use data Binding? 
+2. How can I use a "creator" for Objects? Does it have to be classes? 
+3. How can i hide the option when the element is not selected? -> CSS the best solution?
+
+
+
+TODOS
+a. Use data - instead of setAttribute --> dataset is added as attribute to the HTML Element
+b. Store the data from the UI in the Object==>Array + add it in local storage 
+c. Create an Array of Ids in order to be able to rebuild the latest version on load 
+d. explore mailchimp pattern library 
+e. explore bulma.io 
+
+
+f. Check the wiki-data ID of the result -> what does it what is it for?
+g. Check if the weather APP is fine with the GPS data 
